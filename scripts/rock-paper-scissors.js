@@ -1,10 +1,3 @@
-/*Algotithm (Rock Paper Scissors)
-      When we click a button:
-      1. Computer randomly selects a move
-      2. Compare the moves to get the result
-      3. Update a score
-      4. Display the result and score in a popup*/
-
 let score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
   losses: 0,
@@ -12,14 +5,6 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 };
 
 updateScoreElement();
-
-// if (!score /*score === null*/) {
-//  score = {
-//    wins: 0,
-//    losses: 0,
-//    ties: 0
-//  };
-//}
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
@@ -69,11 +54,6 @@ function playGame(playerMove) {
   updateResultElement(result);
 
   updateMovesElement(playerMove, computerMove);
-  /*document.querySelector('.js-result')
-    .innerHTML = result;*/
-
-  /*document.querySelector('.js-moves').innerHTML
-  = `You ${playerMove} - ${computerMove} Computer`;*/
 }
 
 function updateScoreElement() {
@@ -87,8 +67,7 @@ function updateResultElement(result) {
 }
 
 function updateMovesElement(playerMove, computerMove) {
-  /*${playerMove}
-                       ${computerMove}*/
+  
   document.querySelector('.js-moves').innerHTML = `You
     <img src="images/${playerMove}-emoji.png" class="move-icon">
     <img src="images/${computerMove}-emoji.png" class="move-icon">
@@ -100,13 +79,8 @@ function pickComputerMove() {
 
   let computerMove = '';
 
-  if (randomNumber >= 0 && randomNumber < 1 / 3) {
-    computerMove = 'rock';
-  } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-    computerMove = 'paper';
-  } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-    computerMove = 'scissors';
-  }
-
-  return computerMove;
+  return computerMove = 
+          randomNumber >= 0     && randomNumber < 1 / 3 ? "rock"
+        : randomNumber >= 1 / 3 && randomNumber < 2 / 3 ? "paper"
+        :                                                 "scissors";
 }
